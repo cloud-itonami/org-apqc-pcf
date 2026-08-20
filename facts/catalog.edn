@@ -1,0 +1,119 @@
+;; APQC PCF citation catalog for axis-ingest.
+;;
+;; Live apqc.org returns 403 to automated clients (bot control), so identity
+;; citations go through Wayback Machine snapshots that still answer 200.
+;; BPMN citations are the mapping target this repo's README claims; they are
+;; fetched from omg.org directly. Self-surface raw.githubusercontent / GitHub
+;; API URLs pin the published leaf claim.
+;;
+;; Gate: `nbb tools/verify_citations.cljs` must exit 0. Do not add a URL that
+;; does not return 2xx under that gate.
+
+{:catalog/id "org-apqc-pcf/v1"
+ :catalog/about
+ "Open APQC Process Classification Framework (PCF) surface. L1 taxonomy is
+  published under kotoba/; this catalog pins the public sources that make
+  those process-category names and the BPMN mapping claim falsifiable."
+
+ :catalog/entries
+ [{:cite/id :apqc/wayback-home-2024
+   :cite/url "https://web.archive.org/web/20240101000000/https://www.apqc.org/"
+   :cite/kind :publisher-home
+   :cite/expect-substring "APQC"
+   :cite/note "Wayback snapshot of apqc.org home; live apex is 403 to this client."}
+
+  {:cite/id :apqc/wayback-home-2022
+   :cite/url "https://web.archive.org/web/20220601000000/https://www.apqc.org/"
+   :cite/kind :publisher-home
+   :cite/expect-substring "APQC"
+   :cite/note "Earlier Wayback snapshot of apqc.org home."}
+
+  {:cite/id :apqc/wayback-process-frameworks-2023
+   :cite/url "https://web.archive.org/web/2023/https://www.apqc.org/process-frameworks"
+   :cite/kind :framework-index
+   :cite/expect-substring "Process"
+   :cite/note "Wayback snapshot of the process-frameworks landing."}
+
+  {:cite/id :apqc/wayback-process-frameworks-2020
+   :cite/url "https://web.archive.org/web/20200101000000id_/https://www.apqc.org/process-frameworks"
+   :cite/kind :framework-index
+   :cite/expect-substring "Process"
+   :cite/note "id_ Wayback snapshot of process-frameworks."}
+
+  {:cite/id :apqc/wayback-pcf-resource-listing
+   :cite/url "https://web.archive.org/web/*/https://www.apqc.org/resource-library/resource-listing/apqc-process-classification-framework-pcf-cross-industry"
+   :cite/kind :pcf-resource-calendar
+   :cite/expect-substring "web.archive.org"
+   :cite/note "Wayback calendar for the cross-industry PCF resource listing."}
+
+  {:cite/id :omg/bpmn-2-0-spec
+   :cite/url "https://www.omg.org/spec/BPMN/2.0/"
+   :cite/kind :mapping-target
+   :cite/expect-substring "BPMN"
+   :cite/note "OMG BPMN 2.0 specification page — the projector mapping target."}
+
+  {:cite/id :omg/bpmn-2-0-pdf
+   :cite/url "https://www.omg.org/spec/BPMN/2.0/PDF"
+   :cite/kind :mapping-target
+   :cite/expect-substring "PDF"
+   :cite/note "Direct PDF endpoint for BPMN 2.0 (OMG)."}
+
+  {:cite/id :omg/bpmn-2-0-about
+   :cite/url "https://www.omg.org/spec/BPMN/2.0/About-BPMN/"
+   :cite/kind :mapping-target
+   :cite/expect-substring "BPMN"
+   :cite/note "OMG about page for BPMN 2.0."}
+
+  {:cite/id :omg/bpmn-hub
+   :cite/url "https://www.omg.org/bpmn/"
+   :cite/kind :mapping-target
+   :cite/expect-substring "BPMN"
+   :cite/note "OMG BPMN hub."}
+
+  {:cite/id :omg/bpmn-spec-tree
+   :cite/url "https://www.omg.org/spec/BPMN/"
+   :cite/kind :mapping-target
+   :cite/expect-substring "BPMN"
+   :cite/note "OMG BPMN specification tree root."}
+
+  {:cite/id :omg/spec-catalog
+   :cite/url "https://www.omg.org/spec/"
+   :cite/kind :mapping-target
+   :cite/expect-substring "OMG"
+   :cite/note "OMG specification catalog root (BPMN lives under this tree)."}
+
+  {:cite/id :github/org-apqc-pcf-readme
+   :cite/url "https://raw.githubusercontent.com/cloud-itonami/org-apqc-pcf/main/README.md"
+   :cite/kind :self-surface
+   :cite/expect-substring "APQC"
+   :cite/note "Published README on main — identity of this leaf's public claim."}
+
+  {:cite/id :github/org-apqc-pcf-api
+   :cite/url "https://api.github.com/repos/cloud-itonami/org-apqc-pcf"
+   :cite/kind :self-surface
+   :cite/expect-substring "org-apqc-pcf"
+   :cite/note "GitHub API identity for the leaf repository."}
+
+  {:cite/id :github/org-apqc-pcf-kotoba-readme
+   :cite/url "https://raw.githubusercontent.com/cloud-itonami/org-apqc-pcf/main/kotoba/README.md"
+   :cite/kind :self-surface
+   :cite/expect-substring "Process Classification Framework"
+   :cite/note "kotoba L1 publisher README on main."}
+
+  {:cite/id :github/org-apqc-pcf-types
+   :cite/url "https://raw.githubusercontent.com/cloud-itonami/org-apqc-pcf/main/kotoba/src/types.ts"
+   :cite/kind :self-surface
+   :cite/expect-substring "APQC_PCF_VERSION"
+   :cite/note "Published L1 type surface naming the PCF version constant."}
+
+  {:cite/id :github/org-apqc-pcf-seed
+   :cite/url "https://raw.githubusercontent.com/cloud-itonami/org-apqc-pcf/main/kotoba/src/seed.ts"
+   :cite/kind :self-surface
+   :cite/expect-substring "PCF_V74_L1_CATEGORIES"
+   :cite/note "Published L1 seed catalog (13 categories)."}
+
+  {:cite/id :github/org-apqc-pcf-migration
+   :cite/url "https://raw.githubusercontent.com/cloud-itonami/org-apqc-pcf/main/migration.edn"
+   :cite/kind :self-surface
+   :cite/expect-substring "etzhayyim.migration"
+   :cite/note "Published migration identity for the leaf extract."}]}

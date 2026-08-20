@@ -29,3 +29,18 @@ the catalog data + projector spec from vendor.
 - [`orgs/etzhayyim/com-etzhayyim-apqc/lex/`](../../orgs/etzhayyim/com-etzhayyim-apqc/lex) — Tranche F lexicons
 - ADR-2605172400 (vendor: 3-axis split rule + Tranche F)
 - [ADR-0025 Kyber APQC/BPMN Projector Consolidation](https://github.com/etzhayyim/etzhayyim-root/blob/main/90-docs/adr/0025-kyber-apqc-bpmn-projector-consolidation.md) (foundational)
+
+## Citation catalog (axis-ingest)
+
+Public sources that make this leaf's PCF + BPMN claims falsifiable live in
+`facts/catalog.edn`. Live `apqc.org` returns **403** to automated clients, so
+publisher identity is pinned through Wayback Machine snapshots that still answer
+200; BPMN mapping targets are fetched from `omg.org` directly.
+
+```bash
+nbb tools/verify_citations.cljs --min 13
+```
+
+Exit 0 only when every catalog URL returns 2xx (redirects followed) and any
+non-empty `:cite/expect-substring` is present in the body. Breaking a URL in the
+catalog must make the gate exit 1.
