@@ -1,6 +1,6 @@
 # open-apqc CLAUDE.md
 
-Tranche F scaffolding (Phase 2). See README.md.
+Tranche F leaf. See README.md, and `docs/operator-quickstart.md` for what runs today.
 
 ## Boundary
 
@@ -18,4 +18,12 @@ See `orgs/etzhayyim/com-etzhayyim-apqc/lex/`.
 
 ## Status
 
-Phase 2 scaffolding only. Phase 3 content copy is a separate work item.
+Not scaffolding-only any more: `kotoba/` carries the Phase-1 publisher (13 PCF
+v7.4 L1 categories, 28 offline tests) and `facts/catalog.edn` carries 17
+verified citations behind a live fetch gate. The vendor PCF catalog port from
+`etzhayyim/etzhayyim-root` is still a separate, deferred work item, as are the
+L2–L5 layers.
+
+Before trusting a green run here, read `docs/operator-quickstart.md` — the
+citation gate's exit 2 means "could not answer", and `kotoba/`'s advertised
+36/36 is 28 runnable + 8 blocked behind an npm 11.x install failure.

@@ -92,8 +92,13 @@ Returns the Merkle path from the record to the MST root that was anchored to Bas
 ## Tests
 
 ```bash
-pnpm test
-# 36/36 (vitest):
+npm test        # package.json defines `test` as `vitest run`
+# 36 cases exist. Measured 2026-08-20 on npm 11.16.0 / node v26.3.0:
+#   28 run and pass; 8 cannot be reached, because `npm install` fails on the
+#   @etzhayyim/sdk git dependency and seed.test.ts imports it via seed.ts.
+#   See ../docs/operator-quickstart.md step 3. Do not quote 36/36 as observed.
+#
+# 36/36 (vitest), when the SDK install works:
 #   - 28 type cases: all 13 valid L1 codes + 11 rejected variants (0.0 / 14.0 / 1.1 / "1" / etc.)
 #                    + l1Ordinal numeric extraction + NaN-safe rejection
 #   - 8 seed cases: catalog cardinality, gap-free 1.0–13.0, anchor names verbatim,
@@ -106,7 +111,7 @@ pnpm test
 |---|---|
 | Record lexicon `com.etzhayyim.apqc.processCategory` | ✅ |
 | Seeder + helpers + inline v7.4 catalog | ✅ |
-| Pure-helper tests | ✅ 36/36 |
+| Pure-helper tests | ⚠ 28/36 observed (2026-08-20) — 8 blocked by the SDK install, see `../docs/operator-quickstart.md` |
 | Live PDS seed run | ⏳ pending PDS auth credentials (Gate 4 of [`OPERATIONAL-DEPLOY.md`](../../../50-infra/OPERATIONAL-DEPLOY.md)) |
 | Anchor verify against deployed contract | ⏳ pending Gate 3 EtzhayyimAnchor deploy |
 | L2 (`processGroup`) record lexicon + seed | ⏳ future PR (~80 entries, requires CSV/JSON catalog) |
