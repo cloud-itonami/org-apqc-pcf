@@ -13,7 +13,7 @@ Two surfaces are present and independently runnable:
 
 | Surface | Path | State |
 |---|---|---|
-| Citation catalog + live fetch gate | `facts/catalog.edn`, `tools/verify_citations.cljs` | ✅ 17 citations, gate verified to fail on a broken URL (2026-08-20) |
+| Citation catalog + live fetch gate | `facts/catalog.edn`, `tools/verify_citations.kotoba` | ✅ 17 citations, gate verified to fail on a broken URL (2026-08-20) |
 | kotoba reference implementation — PCF v7.4 L1 | `kotoba/` | ✅ 13 L1 categories inline; 28 pure-helper tests pass offline |
 | Live PDS seed / anchor verify | `kotoba/src/{seed,query,verify}.ts` | ⏳ needs PDS credentials — not exercised |
 | L2–L5 layers (~80 / 250 / 700 / 1,000 entries) | — | ⏳ future PRs, need a checked-in catalog |
@@ -49,7 +49,7 @@ publisher identity is pinned through Wayback Machine snapshots that still answer
 200; BPMN mapping targets are fetched from `omg.org` directly.
 
 ```bash
-nbb tools/verify_citations.cljs --min 13
+nbb tools/verify_citations.kotoba --min 13
 ```
 
 Exit 0 only when every catalog URL returns 2xx (redirects followed) and any

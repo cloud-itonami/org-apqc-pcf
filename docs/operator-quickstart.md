@@ -14,7 +14,7 @@ Two surfaces, both real, both independently runnable:
 
 | Surface | Path | Needs network | Needs install |
 |---|---|---|---|
-| Citation catalog + live gate | `facts/catalog.edn`, `tools/verify_citations.cljs` | yes | no |
+| Citation catalog + live gate | `facts/catalog.edn`, `tools/verify_citations.kotoba` | yes | no |
 | kotoba reference implementation (PCF v7.4 L1) | `kotoba/` | no (tests) | yes |
 
 The citation gate is the one to run first: it needs no package install and it
@@ -23,7 +23,7 @@ answers in about a minute.
 ## 1. Verify the citation catalog
 
 ```bash
-nbb tools/verify_citations.cljs --min 13
+nbb tools/verify_citations.kotoba --min 13
 ```
 
 Every `:cite/url` in `facts/catalog.edn` is fetched; a row passes when it
@@ -61,7 +61,7 @@ trust a green run — on a scratch copy, never on your working tree:
 ```bash
 cp -R . /tmp/apqc-gate-probe && cd /tmp/apqc-gate-probe && rm -f .git
 # point any one :cite/url at a URL that will 404, then:
-nbb tools/verify_citations.cljs --min 13; echo "EXIT=$?"
+nbb tools/verify_citations.kotoba --min 13; echo "EXIT=$?"
 ```
 
 Measured 2026-08-20, after breaking `:apqc/wayback-home-2024`:
