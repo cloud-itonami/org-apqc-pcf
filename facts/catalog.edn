@@ -6,7 +6,7 @@
 ;; fetched from omg.org directly. Self-surface raw.githubusercontent / GitHub
 ;; API URLs pin the published leaf claim.
 ;;
-;; Gate: `nbb tools/verify_citations.cljs` must exit 0. Do not add a URL that
+;; Gate: `nbb tools/verify_citations.kotoba` must exit 0. Do not add a URL that
 ;; does not return 2xx under that gate.
 
 {:catalog/id "org-apqc-pcf/v1"
