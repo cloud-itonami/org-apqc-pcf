@@ -1,4 +1,4 @@
-# open-apqc CLAUDE.md
+# open-apqc AGENTS.md
 
 Tranche F leaf. See README.md, and `docs/operator-quickstart.md` for what runs today.
 

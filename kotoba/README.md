@@ -1,6 +1,6 @@
 # open-apqc — kotoba reference implementation (Phase 3 step 1)
 
-kotoba port of the APQC PCF (Process Classification Framework) under the substrate rules of [ADR-2605172000](../../../90-docs/adr/2605172000-etzhayyim-kotoba-substrate.md). Promotes the project from the Phase 2 scaffold (README + CLAUDE.md only) to Phase 3 with a working taxonomy publisher.
+kotoba port of the APQC PCF (Process Classification Framework) under the substrate rules of [ADR-2605172000](../../../90-docs/adr/2605172000-etzhayyim-kotoba-substrate.md). Promotes the project from the Phase 2 scaffold (README + AGENTS.md only) to Phase 3 with a working taxonomy publisher.
 
 Fourth kotoba actor after [`open-isco`](../../etzhayyim-project-open-isco/kotoba/) (occupations), [`open-isic`](../../etzhayyim-project-open-isic/kotoba/) (industry classes), and [`open-unispsc`](../../etzhayyim-project-open-unispsc/kotoba/) (procurement segments). The Phase 2 vendor-port plan (PCF catalog + BPMN task catalog + projector spec from `etzhayyim/etzhayyim-root`) is deferred — this PR delivers the substrate-publication surface using the public v7.4 cross-industry framework data directly.
 
@@ -116,7 +116,7 @@ npm test        # package.json defines `test` as `vitest run`
 | Anchor verify against deployed contract | ⏳ pending Gate 3 EtzhayyimAnchor deploy |
 | L2 (`processGroup`) record lexicon + seed | ⏳ future PR (~80 entries, requires CSV/JSON catalog) |
 | L3 / L4 / L5 layers | ⏳ future PRs |
-| Vendor PCF catalog port (etzhayyim/etzhayyim-root) | ⏳ deferred (Phase 2 plan in project CLAUDE.md) |
+| Vendor PCF catalog port (etzhayyim/etzhayyim-root) | ⏳ deferred (Phase 2 plan in project AGENTS.md) |
 
 ## See also
 
